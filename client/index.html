@@ -8,12 +8,12 @@
       name="description"
       content="Explora la mitología Guaraní: API con los siete monstruos legendarios, su historia e imágenes."
     />
-    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
-    <link rel="stylesheet" href="./assets/globals.css" />
+    <link rel="stylesheet" href="./assets/globals.min.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
     />
+    <!-- Vercel Analytics -->
     <script>
       window.va =
         window.va ||
@@ -22,16 +22,20 @@
         };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+    <!-- End Vercel Analytics -->
   </head>
   <body>
+    <header>
+      <center>
+        <h1>Mitos Guaraníes</h1>
+        <i>
+          Una API que provee información sobre las siete criaturas legendarias,
+          su historia resumida e imágenes relacionadas.
+        </i>
+      </center>
+    </header>
     <main>
-      <h1>Mitos Guaraníes</h1>
-      <p>
-        Explora la mitología Guaraní a través de esta API. Accede a los siete
-        monstruos legendarios, su historia resumida e imágenes relacionadas.
-      </p>
-      <hr />
-      <blockquote id="m"></blockquote>
+      <article id="m"></article>
       <hr />
       <h2>Para empezar</h2>
       <p>
@@ -92,9 +96,7 @@
           const data = await res.json();
           containerEl.innerHTML = "";
           containerEl.innerHTML = `
-            <center>
-              <img alt="Imagen de ${data.title}" src=${data.image} />
-            </center>
+            <img alt="Imagen de ${data.title}" src=${data.image} />
             <h3>${data.title}</h3>
             <p>${data.description}</p>
           `;
