@@ -6,11 +6,7 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/index.js" },
-    {
-      "src": "/assets/(.*\\.(css|js|png|jpg|jpeg|webp|svg))",
-      "dest": "/client/assets/$1",
-      "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
-    },
+    { "src": "/assets/(.*\\.(css))", "dest": "/client/assets/$1" },
     { "src": "/", "dest": "/client/index.html" }
   ]
 }
