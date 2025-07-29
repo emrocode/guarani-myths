@@ -14,7 +14,6 @@ const mythObjectSchema = {
 export const mythCollectionSchema = {
   querystring: {
     type: "object",
-    required: ["lang"],
     properties: {
       lang: { type: "string", enum: supportedLanguages },
     },
@@ -37,7 +36,6 @@ export const mythByIdSchema = {
   },
   querystring: {
     type: "object",
-    required: ["lang"],
     properties: {
       lang: { type: "string", enum: supportedLanguages },
     },
@@ -50,7 +48,6 @@ export const mythByIdSchema = {
 export const randomMythSchema = {
   querystring: {
     type: "object",
-    required: ["lang"],
     properties: {
       lang: { type: "string", enum: supportedLanguages },
     },

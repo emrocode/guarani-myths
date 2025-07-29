@@ -12,6 +12,14 @@ import { handleRequest } from "../helpers/requestHandler.js";
 export default async function myths(fastify) {
   const collection = fastify.mongo.db.collection("myths");
 
+  // set default language to «es»
+  fastify.addHook("preValidation", (req, _, done) => {
+    if (!req.query.lang) {
+      req.query.lang = "es";
+    }
+    done();
+  });
+
   fastify.get("/", { schema: mythCollectionSchema }, async (req, reply) => {
     const lang = req.query.lang;
     const cacheKey = `myths:${lang}`;
