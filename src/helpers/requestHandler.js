@@ -7,8 +7,10 @@ export async function handleRequest(reply, cacheKey, fetchData) {
 
     if (cached) {
       return reply
-        .header("X-Cache", "HIT")
-        .header("Cache-Control", `public, s-maxage=${TTL}`)
+        .headers({
+          "X-Cache": "HIT",
+          "Cache-Control": `public, s-maxage=${TTL}`,
+        })
         .send(cached);
     }
 
@@ -23,13 +25,18 @@ export async function handleRequest(reply, cacheKey, fetchData) {
       });
     }
 
-    await redis.setex(cacheKey, TTL, result);
+    if (cacheKey) {
+      await redis.setex(cacheKey, TTL, result);
 
-    reply
-      .code(200)
-      .header("X-Cache", "MISS")
-      .header("Cache-Control", `public, s-maxage=${TTL}`)
-      .send(result);
+      reply.headers({
+        "X-Cache": "MISS",
+        "Cache-Control": `public, s-maxage=${TTL}`,
+      });
+    } else {
+      reply.headers({ "Cache-Control": "no-store" });
+    }
+
+    reply.code(200).send(result);
   } catch (error) {
     console.error(error);
     reply.status(500).send({

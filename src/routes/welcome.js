@@ -8,6 +8,7 @@ export default async function welcome(fastify) {
       resources: {
         myths: "/api/myths?lang={lang}",
         mythById: "/api/myths/:id?lang={lang}",
+        randomMyth: "/api/myths/random?lang={lang}",
         supportedLanguages: "/api/languages",
       },
     });

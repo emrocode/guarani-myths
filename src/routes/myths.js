@@ -1,4 +1,8 @@
-import { mythCollectionSchema, mythByIdSchema } from "../schemas/myths.js";
+import {
+  mythCollectionSchema,
+  mythByIdSchema,
+  randomMythSchema,
+} from "../schemas/myths.js";
 import { handleRequest } from "../helpers/requestHandler.js";
 
 /**
@@ -42,11 +46,32 @@ export default async function myths(fastify) {
       return {
         id: myth.id,
         image: myth.image,
-        title: myth.translations?.[lang]?.title,
-        description: myth.translations?.[lang]?.description,
+        title: myth.translations?.[lang].title,
+        description: myth.translations?.[lang].description,
       };
     };
 
     await handleRequest(reply, cacheKey, fetchData);
+  });
+
+  fastify.get("/random", { schema: randomMythSchema }, async (req, reply) => {
+    const lang = req.query.lang;
+
+    const fetchData = async () => {
+      const [myth] = await collection
+        .aggregate([{ $sample: { size: 1 } }])
+        .toArray();
+
+      if (!myth) return null;
+
+      return {
+        id: myth.id,
+        image: myth.image,
+        title: myth.translations?.[lang].title,
+        description: myth.translations?.[lang].description,
+      };
+    };
+
+    await handleRequest(reply, null, fetchData);
   });
 }
