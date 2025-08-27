@@ -6,6 +6,6 @@ import { supportedLanguages } from "../_constants/index.js";
  */
 export default async function languages(fastify) {
   fastify.get("/", async (_, reply) => {
-    reply.code(200).send({ supportedLanguages });
+    reply.code(200).send(supportedLanguages);
   });
 }

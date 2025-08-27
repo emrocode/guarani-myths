@@ -1,20 +1,17 @@
 {
   "name": "guarani-myths-api",
-  "version": "1.0.0",
-  "description": "Guaraní Mythology REST API",
+  "version": "1",
+  "description": "",
   "type": "module",
+  "packageManager": "npm@10.9.3",
   "scripts": {
-    "start": "node api/index.ts",
-    "format": "prettier src/* --write",
-    "format:client": "prettier client/* --write",
-    "build:css": "uglifycss client/assets/globals.css > client/assets/globals.min.css"
+    "format": "prettier ./src/ --write"
   },
   "keywords": [],
   "author": "Emilio Romero <emrocode@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "uglifycss": "^0.0.29"
+    "prettier": "^3.5.3"
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",

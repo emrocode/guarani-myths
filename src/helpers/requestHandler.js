@@ -16,7 +16,7 @@ export async function handleRequest(reply, cacheKey, fetchData) {
 
     const result = await fetchData();
 
-    if (result === null) {
+    if (!result) {
       return reply.code(404).send({
         statusCode: 404,
         code: "MYTH_NOT_FOUND",
