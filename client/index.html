@@ -4,107 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mitos Guaraníes: API</title>
-    <meta
-      name="description"
-      content="Explora la mitología Guaraní: API con los siete monstruos legendarios, su historia e imágenes."
-    />
-    <link rel="stylesheet" href="./assets/globals.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
     />
-    <!-- Vercel Analytics -->
-    <script>
-      window.va =
-        window.va ||
-        function () {
-          (window.vaq = window.vaq || []).push(arguments);
-        };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <!-- End Vercel Analytics -->
   </head>
   <body>
-    <header>
-      <center>
-        <h1>Mitos Guaraníes</h1>
-        <i>
-          Una API que provee información sobre las siete criaturas legendarias,
-          su historia resumida e imágenes relacionadas.
-        </i>
-      </center>
-    </header>
-    <main>
-      <article id="m"></article>
-      <hr />
-      <h2>Para empezar</h2>
-      <p>
-        La url base contiene información sobre todos los recursos disponibles de
-        la API. Todas las peticiones son <code>GET</code> y van sobre
-        <code>https</code>. Todas las respuestas devolverán datos en formato
-        <code>JSON</code>.
-      </p>
-      <p>
-        Base url:
-        <a href="https://warani.vercel.app/api"
-          >https://warani.vercel.app/api</a
-        >
-      </p>
-      <hr />
-      <h2>Contribuir al proyecto</h2>
-      <p>
-        Si tienes alguna sugerencia que podría mejorar el proyecto, por favor
-        haz un <strong>fork</strong> del
-        <a
-          href="https://github.com/emrocode/guarani-myths-api"
-          target="_blank"
-          rel="noopener noreferrer"
-          >repositorio</a
-        >
-        y crea una <strong>pull_request</strong> o puedes simplemente abrir una
-        <strong>issue</strong> con la etiqueta «enhancement».
-      </p>
-    </main>
-    <hr />
-    <footer>
-      <p>
-        Creado por
-        <a
-          href="https://github.com/emrocode"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Emilio Romero</a
-        >
-      </p>
-    </footer>
-    <script>
-      (async function fetchMyths() {
-        const containerEl = document.getElementById("m");
-        containerEl.innerHTML =
-          "<center><mark>Obteniendo historia principal...</mark></center>";
-
-        try {
-          const response = fetch("/api/myths/1?lang=es");
-          const timeout = new Promise((resolve) => setTimeout(resolve, 3000));
-          const [res] = await Promise.all([response, timeout]);
-
-          if (!res.ok)
-            throw new Error(
-              `Error ${res.status}: No se pudo cargar la historia`,
-            );
-
-          const data = await res.json();
-          containerEl.innerHTML = "";
-          containerEl.innerHTML = `
-            <img alt="Imagen de ${data.title}" src=${data.image} />
-            <h3>${data.title}</h3>
-            <p>${data.description}</p>
-          `;
-        } catch (error) {
-          console.error(error);
-          containerEl.innerHTML = `<center><mark class="error">${error.message}</mark></center>`;
-        }
-      })();
-    </script>
+    <main id="app" />
   </body>
 </html>

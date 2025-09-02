@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-fallback:
+    BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Arial", "Helvetica Neue", sans-serif;
+  --font-sans: "IBM Plex Sans", var(--font-fallback);
+  --font-mono: "IBM Plex Mono", monospace;
+  --max-w: 48rem;
+  --nav-h: 4rem;
+
+  --color-primary: oklch(1 0 0);
+  --color-secondary: oklch(0.9851 0 0);
+  --color-tertiary: oklch(0.235 0 0);
+  --color-accent: oklch(0.4582 0.0416 65.09);
+  --color-line: --alpha(var(--color-tertiary) / 15%);
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-primary text-tertiary min-h-screen antialiased [scrollbar-gutter:stable];
+  }
+
+  main#app {
+    @apply grid min-h-screen grid-cols-1 grid-rows-[auto_1fr_auto] gap-16;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply pb-2 leading-9 font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl before:content-["\007B"] after:text-accent before:mr-1 after:ml-1 after:content-["\007D"];
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  p {
+    @apply mb-6;
+  }
+
+  a {
+    @apply text-accent hover:bg-accent/5 underline;
+  }
+
+  ul {
+    @apply mb-6 ml-5 list-item list-disc;
+  }
+
+  code {
+    @apply text-sm/none font-semibold before:content-["\0060"] after:content-["\0060"];
+  }
+}
+
+@utility container {
+  @apply mx-auto w-11/12 max-w-[var(--max-w)];
+}
