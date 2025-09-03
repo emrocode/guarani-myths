@@ -8,8 +8,9 @@
     }
   ],
   "rewrites": [
-    { "source": "/api/:path*", "destination": "api/index.js" },
+    { "source": "/api/(.*)", "destination": "api/index.js" },
     { "source": "/static/:path*", "destination": "client/static/$1" },
-    { "source": "/:path*", "destination": "client/index.html" }
+    { "source": "/favicon.ico", "destination": "client/favicon.ico" },
+    { "source": "/(.*)", "destination": "client/index.html" }
   ]
 }
