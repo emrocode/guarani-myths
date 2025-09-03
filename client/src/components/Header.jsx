@@ -1,25 +1,45 @@
-import { NavLink } from "react-router";
+import { Button } from "./ui";
 import { GitHub } from "./svgl";
+import { HeartHandshake } from "lucide-react";
 
 export default function Header() {
   return (
-    <header>
-      <nav className="container mt-[var(--nav-h)] flex min-h-[var(--nav-h)] flex-col items-center justify-center gap-6 md:justify-between">
-        <NavLink className="text-inherit no-underline" to="/">
-          <h1 className="text-center capitalize">
-            mitos <span className="text-accent">guaraníes</span>
+    <section>
+      <div className="container mt-[var(--nav-h)] flex flex-col items-center">
+        <div className="text-center sm:text-left">
+          <h1 className="capitalize">
+            mitos <span className="text-accent--secondary">guaraníes</span>
           </h1>
-        </NavLink>
-        <NavLink
-          className="ring-line ring-offset-primary bg-accent flex max-w-max gap-x-2 rounded-xs px-4 py-2 text-sm font-medium whitespace-nowrap text-white no-underline ring ring-offset-[1.5px] disabled:opacity-60"
-          rel="noopener noreferrer"
-          target="_blank"
-          to="https://github.com/emrocode/guarani-myths"
-        >
-          <GitHub className="size-5" />
-          <span>Ver en GitHub</span>
-        </NavLink>
-      </nav>
-    </header>
+          <p className="text-tertiary/60 mt-2 text-lg">
+            Explora la mitología guaraní a través de esta API.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+          <Button
+            className="!rounded-full"
+            href="https://github.com/emrocode/guarani-myths"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <div className="flex items-center gap-x-2">
+              <GitHub className="size-5" />
+              <span>Ver en GitHub</span>
+            </div>
+          </Button>
+          <Button
+            className="!rounded-full"
+            href="https://github.com/sponsors/emrocode"
+            rel="noopener noreferrer"
+            target="_blank"
+            variant="secondary"
+          >
+            <div className="flex items-center gap-x-2">
+              <HeartHandshake className="size-5" />
+              <span>Patrocinar</span>
+            </div>
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 }

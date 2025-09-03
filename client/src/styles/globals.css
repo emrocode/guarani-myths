@@ -6,13 +6,14 @@
     "Arial", "Helvetica Neue", sans-serif;
   --font-sans: "IBM Plex Sans", var(--font-fallback);
   --font-mono: "IBM Plex Mono", monospace;
-  --max-w: 48rem;
+  --max-w: 56rem;
   --nav-h: 4rem;
 
   --color-primary: oklch(1 0 0);
   --color-secondary: oklch(0.9851 0 0);
   --color-tertiary: oklch(0.235 0 0);
-  --color-accent: oklch(0.4582 0.0416 65.09);
+  --color-accent: oklch(0.293 0.0179 93.31);
+  --color-accent--secondary: oklch(0.4582 0.0416 65.09);
   --color-line: --alpha(var(--color-tertiary) / 15%);
 }
 
@@ -37,11 +38,11 @@
   h4,
   h5,
   h6 {
-    @apply pb-2 leading-9 font-bold tracking-tight;
+    @apply pb-2 font-bold tracking-tight;
   }
 
   h1 {
-    @apply text-4xl before:content-["\007B"] after:text-accent before:mr-1 after:ml-1 after:content-["\007D"];
+    @apply after:text-accent--secondary text-5xl before:mr-1 before:font-mono before:content-["\007B"] after:ml-1 after:font-mono after:content-["\007D"];
   }
 
   h2 {
@@ -53,7 +54,7 @@
   }
 
   a {
-    @apply text-accent hover:bg-accent/5 underline;
+    @apply text-accent--secondary hover:bg-accent--secondary/10 underline;
   }
 
   ul {

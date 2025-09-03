@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { Button } from "@headlessui/react";
-import Codeblock from "./Codeblock";
-import { LoaderIcon, TerminalIcon } from "lucide-react";
+import { Button } from "./ui";
+import { Codeblock } from "@/components/ui";
+import { LoaderIcon } from "lucide-react";
 
 export default function Demo() {
   const [data, setData] = useState({
     result: {},
     isLoading: false,
   });
+
   const [run, setRun] = useState(false);
 
   useEffect(() => {
@@ -30,22 +31,12 @@ export default function Demo() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h2>Pruébalo</h2>
-        <p>Ejecuta este código aquí, en una consola o desde cualquier lugar:</p>
-      </div>
       <Codeblock code={codeString} language="javascript" />
-      <Button
-        className="ring-line ring-offset-primary bg-accent flex max-w-max items-center gap-x-2 rounded-xs px-4 py-2 text-sm font-medium text-white ring ring-offset-[1.5px] disabled:opacity-60"
-        disabled={run}
-        onClick={() => setRun(true)}
-      >
-        <span>{data.isLoading ? "Running..." : "Run script"}</span>
-        {data.isLoading ? (
-          <LoaderIcon className="size-4 animate-spin" />
-        ) : (
-          <TerminalIcon className="size-4" />
-        )}
+      <Button disabled={run} onClick={() => setRun(true)}>
+        <div className="flex items-center gap-x-2">
+          <span>{data.isLoading ? "Running..." : "Run script"}</span>
+          {data.isLoading && <LoaderIcon className="size-4 animate-spin" />}
+        </div>
       </Button>
       <Codeblock code={codeResults} language="json" />
     </div>

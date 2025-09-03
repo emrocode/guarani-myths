@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 
 export default function Codeblock({ code, language }) {
   return (
-    <Highlight code={code} language={language} theme={themes.oneLight}>
+    <Highlight code={code} language={language} theme={themes.vsLight}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={clsx(
             className,
-            "ring-line rounded p-4 break-words whitespace-pre-wrap ring",
+            "rounded p-4 break-words whitespace-pre-wrap",
           )}
-          style={style}
+          style={{ ...style, backgroundColor: "var(--color-secondary)" }}
         >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line })}>
