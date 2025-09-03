@@ -6,7 +6,7 @@
     "Arial", "Helvetica Neue", sans-serif;
   --font-sans: "IBM Plex Sans", var(--font-fallback);
   --font-mono: "IBM Plex Mono", monospace;
-  --max-w: 56rem;
+  --max-w: 48rem;
   --nav-h: 4rem;
 
   --color-primary: oklch(1 0 0);
