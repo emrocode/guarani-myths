@@ -4,14 +4,15 @@ import { HeartHandshake } from "lucide-react";
 
 export default function Header() {
   return (
-    <section>
-      <div className="container mt-[var(--nav-h)] flex flex-col items-center">
-        <div className="text-center sm:text-left">
+    <section className="border-line border-b">
+      <div className="container flex flex-col items-center py-[var(--nav-h)]">
+        <div className="text-center">
           <h1 className="capitalize">
             mitos <span className="text-accent--secondary">guaraníes</span>
           </h1>
-          <p className="text-tertiary/60 mt-2 text-lg">
-            Explora la mitología guaraní a través de esta API.
+          <p className="text-tertiary/60 mx-auto mt-2 max-w-xl text-lg">
+            Una API que provee información sobre las siete criaturas
+            legendarias, su historia resumida e imágenes relacionadas.
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">

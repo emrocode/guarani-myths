@@ -9,7 +9,7 @@ export default function Codeblock({ code, language }) {
         <pre
           className={clsx(
             className,
-            "rounded p-4 break-words whitespace-pre-wrap",
+            "rounded p-4 break-all whitespace-pre-wrap",
           )}
           style={{ ...style, backgroundColor: "var(--color-secondary)" }}
         >

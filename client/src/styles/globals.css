@@ -6,7 +6,7 @@
     "Arial", "Helvetica Neue", sans-serif;
   --font-sans: "IBM Plex Sans", var(--font-fallback);
   --font-mono: "IBM Plex Mono", monospace;
-  --max-w: 48rem;
+  --max-w: 56rem;
   --nav-h: 4rem;
 
   --color-primary: oklch(1 0 0);
@@ -20,7 +20,7 @@
 @layer base {
   html,
   body {
-    @apply bg-primary text-tertiary min-h-screen antialiased [scrollbar-gutter:stable];
+    @apply bg-primary text-tertiary min-h-screen scroll-smooth antialiased [scrollbar-gutter:stable];
   }
 
   main#app {
@@ -51,6 +51,9 @@
 
   p {
     @apply mb-6;
+    &:has(+ h2) {
+      @apply mb-[var(--nav-h)];
+    }
   }
 
   a {
@@ -59,6 +62,9 @@
 
   ul {
     @apply mb-6 ml-5 list-item list-disc;
+    &:has(+ h2) {
+      @apply mb-[var(--nav-h)];
+    }
   }
 
   code {
