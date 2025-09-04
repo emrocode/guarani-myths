@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme {
   --font-fallback:
     BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -15,6 +17,15 @@
   --color-accent: oklch(0.293 0.0179 93.31);
   --color-accent--secondary: oklch(0.4582 0.0416 65.09);
   --color-line: --alpha(var(--color-tertiary) / 15%);
+}
+
+@layer theme {
+  @variant dark {
+    --color-primary: oklch(0.0672 0 0);
+    --color-secondary: oklch(0.2039 0.0097 97.83);
+    --color-tertiary: oklch(0.9851 0 0);
+    --color-accent--secondary: oklch(0.7261 0.0832 65.28);
+  }
 }
 
 @layer base {

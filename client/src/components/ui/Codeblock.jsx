@@ -1,10 +1,34 @@
+import { useEffect, useState } from "react";
 import { Highlight, themes } from "prism-react-renderer";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 
 export default function Codeblock({ code, language }) {
+  const [theme, setTheme] = useState();
+
+  useEffect(() => {
+    const updateTheme = () => {
+      const html = document.documentElement;
+
+      if (!(html.getAttribute("data-theme") === "dark")) {
+        return setTheme(themes.vsLight);
+      }
+
+      setTheme(themes.vsDark);
+    };
+
+    updateTheme();
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Highlight code={code} language={language} theme={themes.vsLight}>
+    <Highlight code={code} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={clsx(

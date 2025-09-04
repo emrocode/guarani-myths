@@ -1,6 +1,10 @@
 import { NavLink } from "react-router";
+import { useThemeStore } from "@/store";
+import { Button } from "@headlessui/react";
 
 export default function Footer() {
+  const { toggleDarkMode } = useThemeStore();
+
   const date = new Date(2022, 0);
 
   return (
@@ -18,6 +22,13 @@ export default function Footer() {
           </NavLink>
           &nbsp;{date.getFullYear()}&ndash;present
         </span>
+        <Button className="mt-2" id="dTheme" onClick={toggleDarkMode}>
+          <code>
+            <span className="before:content-['Light'] dark:before:content-['Dark']">
+              &nbsp;theme
+            </span>
+          </code>
+        </Button>
       </div>
     </footer>
   );
