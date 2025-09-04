@@ -15,6 +15,7 @@
     "@headlessui/react": "^2.2.7",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
+    "darkify-js": "^1.1.5",
     "lucide-react": "^0.542.0",
     "prism-react-renderer": "^2.4.1",
     "prop-types": "^15.8.1",
