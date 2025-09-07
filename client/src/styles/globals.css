@@ -11,27 +11,25 @@
   --max-w: 56rem;
   --nav-h: 4rem;
 
-  --color-primary: oklch(1 0 0);
-  --color-secondary: oklch(0.9851 0 0);
+  --color-primary: oklch(0.9192 0.0182 89.36);
+  --color-secondary: oklch(0.8924 0.0241 88.24);
   --color-tertiary: oklch(0.235 0 0);
   --color-accent: oklch(0.293 0.0179 93.31);
   --color-accent--secondary: oklch(0.4582 0.0416 65.09);
   --color-line: --alpha(var(--color-tertiary) / 15%);
 }
 
-@layer theme {
-  @variant dark {
-    --color-primary: oklch(0.0672 0 0);
-    --color-secondary: oklch(0.2039 0.0097 97.83);
-    --color-tertiary: oklch(0.9851 0 0);
-    --color-accent--secondary: oklch(0.7261 0.0832 65.28);
-  }
+@variant dark {
+  --color-primary: oklch(0.1547 0.0045 84.57);
+  --color-secondary: oklch(0.2039 0.0097 97.83);
+  --color-tertiary: oklch(0.8924 0.0241 88.24);
+  --color-accent--secondary: oklch(0.7261 0.0832 65.28);
 }
 
 @layer base {
   html,
   body {
-    @apply bg-primary text-tertiary min-h-screen scroll-smooth antialiased [scrollbar-gutter:stable];
+    @apply bg-primary text-tertiary min-h-screen scroll-smooth antialiased [scrollbar-color:var(--color-accent--secondary)_var(--color-secondary)] [scrollbar-gutter:stable] [scrollbar-width:thin];
   }
 
   main#app {
