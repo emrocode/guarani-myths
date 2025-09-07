@@ -3,7 +3,7 @@ import MDXIntro from "@/content/intro.mdx";
 
 export default function Home() {
   return (
-    <div className="grid gap-8 sm:grid-cols-[220px_auto]">
+    <div className="grid gap-16 sm:grid-cols-[200px_auto]">
       <Sidebar />
       <div>
         <MDXIntro />

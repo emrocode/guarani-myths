@@ -41,7 +41,7 @@ export default function Sidebar() {
             <li key={id}>
               <NavLink
                 className={clsx(
-                  "text-tertiary/60 block py-3 no-underline hover:bg-inherit",
+                  "text-tertiary/60 block py-2 no-underline hover:bg-inherit",
                   {
                     "font-medium !text-inherit": activeId === id,
                   },

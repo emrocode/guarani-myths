@@ -5,7 +5,7 @@ import { HeartHandshake } from "lucide-react";
 export default function Header() {
   return (
     <section className="border-line border-b">
-      <div className="container flex flex-col items-center py-[var(--nav-h)]">
+      <div className="container flex flex-col items-center py-[calc(var(--nav-h)*1.5)]">
         <div className="text-center">
           <h1 className="capitalize">
             mitos <span className="text-accent--secondary">guaraníes</span>
