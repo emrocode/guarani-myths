@@ -33,7 +33,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="top-8 self-start rounded-md md:sticky">
+    <aside className="hidden md:block top-8 self-start rounded-md md:sticky">
       <ul className="divide-line mb-0 ml-0 list-none space-y-2 divide-y">
         {sections.map((item) => {
           const id = slugify(item);
