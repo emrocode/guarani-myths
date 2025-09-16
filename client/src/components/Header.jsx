@@ -1,6 +1,5 @@
 import { Button } from "./ui";
 import { GitHub } from "./svgl";
-import { HeartHandshake } from "lucide-react";
 
 export default function Header() {
   return (
@@ -25,18 +24,6 @@ export default function Header() {
             <div className="flex items-center gap-x-2">
               <GitHub className="size-5" />
               <span>Ver en GitHub</span>
-            </div>
-          </Button>
-          <Button
-            className="!rounded-full"
-            href="https://github.com/sponsors/emrocode"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="secondary"
-          >
-            <div className="flex items-center gap-x-2">
-              <HeartHandshake className="size-5" />
-              <span>Patrocinar</span>
             </div>
           </Button>
         </div>
