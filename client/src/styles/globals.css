@@ -23,13 +23,13 @@
   --color-primary: oklch(0.1547 0.0045 84.57);
   --color-secondary: oklch(0.2039 0.0097 97.83);
   --color-tertiary: oklch(0.8924 0.0241 88.24);
-  --color-accent--secondary: oklch(0.7261 0.0832 65.28);
+  --color-accent--secondary: oklch(0.6654 0.051 65.73);
 }
 
 @layer base {
   html,
   body {
-    @apply bg-primary text-tertiary min-h-screen scroll-smooth antialiased [scrollbar-color:var(--color-accent--secondary)_var(--color-secondary)] [scrollbar-gutter:stable] [scrollbar-width:thin];
+    @apply bg-primary text-tertiary min-h-screen scroll-smooth antialiased [scrollbar-color:var(--color-accent--secondary)_var(--color-secondary)];
   }
 
   main#app {
