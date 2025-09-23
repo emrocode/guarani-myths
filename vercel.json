@@ -11,6 +11,8 @@
     { "source": "/api/(.*)", "destination": "api/index.js" },
     { "source": "/static/:path*", "destination": "client/static/$1" },
     { "source": "/favicon.ico", "destination": "client/favicon.ico" },
+    { "source": "/robots.txt", "destination": "client/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "client/sitemap.xml" },
     { "source": "/(.*)", "destination": "client/index.html" }
   ]
 }
