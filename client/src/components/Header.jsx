@@ -9,7 +9,7 @@ export default function Header() {
           <h1 className="capitalize">
             mitos <span className="text-accent--secondary">guaraníes</span>
           </h1>
-          <p className="text-tertiary/60 mx-auto mt-2 max-w-xl text-lg">
+          <p className="text-tertiary/80 mx-auto mt-2 max-w-xl text-lg">
             Una API que provee información sobre las siete criaturas
             legendarias, su historia resumida e imágenes relacionadas.
           </p>

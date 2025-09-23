@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui";
-import { Codeblock } from "@/components/ui";
+import { CodeBlock } from "@/components/ui";
 import { LoaderIcon } from "lucide-react";
 
 export default function Demo() {
@@ -31,14 +31,14 @@ export default function Demo() {
 
   return (
     <div className="space-y-8">
-      <Codeblock code={codeString} language="javascript" />
+      <CodeBlock code={codeString} language="javascript" />
       <Button disabled={run} onClick={() => setRun(true)}>
         <div className="flex items-center gap-x-2">
           <span>{data.isLoading ? "Running..." : "Run script"}</span>
           {data.isLoading && <LoaderIcon className="size-4 animate-spin" />}
         </div>
       </Button>
-      <Codeblock code={codeResults} language="json" />
+      <CodeBlock code={codeResults} language="json" />
     </div>
   );
 }
