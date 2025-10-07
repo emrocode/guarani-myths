@@ -1,34 +1,32 @@
-import { Link } from "react-router";
 import { useThemeStore } from "@/store";
 import { Button } from "@headlessui/react";
 import { VercelBadge } from "./svgl";
 
 export default function Footer() {
-  const { toggleDarkMode } = useThemeStore();
-
+  const toggleDarkMode = useThemeStore((s) => s.toggleDarkMode);
   const date = new Date(2022, 0);
 
   return (
     <footer className="border-line border-y">
       <div className="container flex min-h-[var(--nav-h)] flex-col items-center py-8 text-center text-sm">
-        <Link
+        <a
           className="mb-4 hover:bg-inherit"
+          href="https://vercel.com?utm_source=warani&utm_campaign=oss"
           rel="noopener noreferrer"
           target="_blank"
-          to="https://vercel.com?utm_source=warani&utm_campaign=oss"
         >
           <VercelBadge />
-        </Link>
+        </a>
         <span>Este proyecto utiliza la Licencia MIT.</span>
         <span>
-          Creado por&nbsp;
-          <Link
+          Creado y mantenido por&nbsp;
+          <a
+            href="https://github.com/emrocode"
             rel="noopener noreferrer"
             target="_blank"
-            to="https://github.com/emrocode"
           >
             <span>Emilio Romero</span>
-          </Link>
+          </a>
           &nbsp;{date.getFullYear()}&ndash;present
         </span>
         <Button className="mt-2" id="dTheme" onClick={toggleDarkMode}>

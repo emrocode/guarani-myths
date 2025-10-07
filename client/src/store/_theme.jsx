@@ -3,20 +3,21 @@ import Darkify from "darkify-js";
 
 let d = null;
 
-const useThemeStore = create(() => {
+const useThemeStore = create((set) => {
   if (!d) {
     d = new Darkify("button#dTheme", {
       autoMatchTheme: true,
       useLocalStorage: true,
-      useColorScheme: ["#ffffff", "#010101"],
+      useColorScheme: ["#e9e4d7", "#0d0c0a"],
     });
   }
 
   const toggleDarkMode = () => {
-    d?.toggleTheme();
+    d.toggleTheme();
+    set({ theme: d.getCurrentTheme() });
   };
 
-  return { toggleDarkMode };
+  return { theme: d.getCurrentTheme(), toggleDarkMode };
 });
 
 export default useThemeStore;
