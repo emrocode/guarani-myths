@@ -22,8 +22,8 @@ export default function Header() {
             target="_blank"
           >
             <div className="flex items-center gap-x-2">
-              <ArrowRightIcon className="size-5" />
               <span>Ver en GitHub</span>
+              <ArrowRightIcon className="size-5" />
             </div>
           </Button>
         </div>
