@@ -2,15 +2,11 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { NavLink } from "react-router";
 
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]/g, "");
-}
+const slugify = (text) => {
+  return text.toLowerCase().replace(/\s+/g, "-");
+};
 
-const sections = ["Introducción", "Para empezar", "Contribuir", "Pruébalo"];
+const SECTIONS = ["Introducción", "Para empezar", "Contribuir", "Pruébalo"];
 
 export default function Sidebar() {
   const [activeId, setActiveId] = useState("");
@@ -21,10 +17,12 @@ export default function Sidebar() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveId(entry.target.id);
+          if (entry.isIntersecting && entry.target.id) {
+            setActiveId(entry.target.id);
+          }
         });
       },
-      { rootMargin: "-30% 0px -30% 0px" },
+      { rootMargin: "-64px 0px -30% 0px", threshold: 0 },
     );
 
     headings.forEach((h) => observer.observe(h));
@@ -35,7 +33,7 @@ export default function Sidebar() {
   return (
     <aside className="top-8 hidden self-start rounded-md md:sticky md:block">
       <ul className="divide-line mb-0 ml-0 list-none space-y-2 divide-y">
-        {sections.map((item) => {
+        {SECTIONS.map((item) => {
           const id = slugify(item);
           return (
             <li key={id}>

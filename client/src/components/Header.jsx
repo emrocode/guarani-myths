@@ -1,5 +1,5 @@
 import { Button } from "./ui";
-import { GitHub } from "./svgl";
+import { ArrowRightIcon } from "lucide-react";
 
 export default function Header() {
   return (
@@ -22,7 +22,7 @@ export default function Header() {
             target="_blank"
           >
             <div className="flex items-center gap-x-2">
-              <GitHub className="size-5" />
+              <ArrowRightIcon className="size-5" />
               <span>Ver en GitHub</span>
             </div>
           </Button>
