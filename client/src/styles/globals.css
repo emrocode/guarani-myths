@@ -55,7 +55,7 @@
   }
 
   h2 {
-    @apply text-2xl;
+    @apply [scroll-margin-top:var(--nav-h)] text-2xl;
   }
 
   p {
