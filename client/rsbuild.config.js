@@ -1,6 +1,7 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginMdx } from "@rsbuild/plugin-mdx";
+import rehypeSlug from "rehype-slug";
 
 export default defineConfig({
   environments: {
@@ -13,7 +14,14 @@ export default defineConfig({
       output: {
         target: "web",
       },
-      plugins: [pluginReact(), pluginMdx()],
+      plugins: [
+        pluginReact(),
+        pluginMdx({
+          mdxLoaderOptions: {
+            rehypePlugins: [rehypeSlug],
+          },
+        }),
+      ],
     },
   },
   html: {
