@@ -1,9 +1,6 @@
 {
-  "name": "guarani-myths-api",
+  "name": "guarani-myths-server",
   "version": "1",
-  "description": "",
-  "type": "module",
-  "packageManager": "npm@11.6.2",
   "scripts": {
     "format": "prettier ./src/ --write"
   },
