@@ -1,5 +1,5 @@
 import { Button } from "./ui";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 
 export default function Header() {
   return (
@@ -23,7 +23,7 @@ export default function Header() {
           >
             <div className="flex items-center gap-x-2">
               <span>Ver en GitHub</span>
-              <ArrowRightIcon className="size-5" />
+              <ArrowUpRightIcon className="size-4" />
             </div>
           </Button>
         </div>
