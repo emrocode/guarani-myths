@@ -1,8 +1,4 @@
-import {
-  mythCollectionSchema,
-  mythByIdSchema,
-  randomMythSchema,
-} from "../schemas/myths.js";
+import { mythCollectionSchema, mythByIdSchema } from "../schemas/myths.js";
 import { handleRequest } from "../helpers/requestHandler.js";
 
 /**

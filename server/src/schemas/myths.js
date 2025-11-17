@@ -44,15 +44,3 @@ export const mythByIdSchema = {
     200: mythObjectSchema,
   },
 };
-
-export const randomMythSchema = {
-  querystring: {
-    type: "object",
-    properties: {
-      lang: { type: "string", enum: supportedLanguages },
-    },
-  },
-  response: {
-    200: mythObjectSchema,
-  },
-};
