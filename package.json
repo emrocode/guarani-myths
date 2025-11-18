@@ -1,3 +1,17 @@
 {
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "packageManager": "npm@11.6.2",
+  "//": "Dependencies required from api/*",
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/env": "^5.0.3",
+    "@fastify/helmet": "^13.0.2",
+    "@fastify/mongodb": "^9.0.2",
+    "@upstash/redis": "^1.35.6",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.6.2"
+  }
 }
