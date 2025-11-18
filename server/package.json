@@ -2,6 +2,7 @@
   "name": "guarani-myths-server",
   "version": "1",
   "type": "module",
+  "private": true,
   "scripts": {
     "format": "prettier ./src/ --write"
   },
