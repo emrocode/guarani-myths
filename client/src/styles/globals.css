@@ -51,7 +51,7 @@
   }
 
   h1 {
-    @apply after:text-accent--secondary text-5xl before:mr-1 before:font-mono before:content-["\007B"] after:ml-1 after:font-mono after:content-["\007D"];
+    @apply after:text-accent--secondary text-5xl;
   }
 
   h2 {
