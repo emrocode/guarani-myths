@@ -1,19 +1,7 @@
-import redis from "../redis.js";
 import { TTL } from "../_constants/index.js";
 
-export async function handleRequest(reply, cacheKey, fetchData) {
+export async function handleRequest(reply, fetchData) {
   try {
-    const cached = await redis.get(cacheKey);
-
-    if (cached) {
-      return reply
-        .headers({
-          "X-Cache": "HIT",
-          "Cache-Control": `public, s-maxage=${TTL}`,
-        })
-        .send(cached);
-    }
-
     const result = await fetchData();
 
     if (!result) {
@@ -25,21 +13,14 @@ export async function handleRequest(reply, cacheKey, fetchData) {
       });
     }
 
-    if (cacheKey) {
-      await redis.setex(cacheKey, TTL, result);
+    reply.headers({
+      "Cache-Control": `public, s-maxage=${TTL}, stale-while-revalidate=${TTL * 2}`,
+    });
 
-      reply.headers({
-        "X-Cache": "MISS",
-        "Cache-Control": `public, s-maxage=${TTL}`,
-      });
-    } else {
-      reply.headers({ "Cache-Control": "no-store" });
-    }
-
-    reply.code(200).send(result);
+    return reply.code(200).send(result);
   } catch (error) {
     console.error(error);
-    reply.status(500).send({
+    return reply.status(500).send({
       statusCode: 500,
       code: "MYTHS_FETCH_ERROR",
       error: "Internal Server Error",

@@ -18,7 +18,6 @@ export default async function myths(fastify) {
 
   fastify.get("/", { schema: mythCollectionSchema }, async (req, reply) => {
     const lang = req.query.lang;
-    const cacheKey = `myths:${lang}`;
 
     const fetchData = async () => {
       const data = await collection
@@ -34,13 +33,12 @@ export default async function myths(fastify) {
       }));
     };
 
-    await handleRequest(reply, cacheKey, fetchData);
+    await handleRequest(reply, fetchData);
   });
 
   fastify.get("/:id", { schema: mythByIdSchema }, async (req, reply) => {
     const id = +req.params.id;
     const lang = req.query.lang;
-    const cacheKey = `myths:${id}:${lang}`;
 
     const fetchData = async () => {
       const myth = await collection.findOne({ id }, { projection: { _id: 0 } });
@@ -55,6 +53,6 @@ export default async function myths(fastify) {
       };
     };
 
-    await handleRequest(reply, cacheKey, fetchData);
+    await handleRequest(reply, fetchData);
   });
 }
