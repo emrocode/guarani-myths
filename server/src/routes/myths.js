@@ -1,4 +1,8 @@
-import { mythCollectionSchema, mythByIdSchema } from "../schemas/myths.js";
+import {
+  mythCollectionSchema,
+  mythByIdSchema,
+  randomMythSchema,
+} from "../schemas/myths.js";
 import { handleRequest } from "../helpers/requestHandler.js";
 
 /**
@@ -56,7 +60,7 @@ export default async function myths(fastify) {
     await handleRequest(reply, fetchData);
   });
 
-  fastify.get("/random", async (req, reply) => {
+  fastify.get("/random", { schema: randomMythSchema }, async (req, reply) => {
     const lang = req.query.lang;
 
     const fetchData = async () => {
