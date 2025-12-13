@@ -17,7 +17,7 @@ export default function Demo() {
     const fetchData = async () => {
       setData((prev) => ({ ...prev, isLoading: true }));
       await new Promise((res) => setTimeout(res, 777));
-      const res = await fetch("https://warani.vercel.app/api/myths/1?lang=es");
+      const res = await fetch("/api/myths/1?lang=es");
       const result = await res.json();
       setData({ result, isLoading: false });
     };
