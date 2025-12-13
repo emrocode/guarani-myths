@@ -55,4 +55,25 @@ export default async function myths(fastify) {
 
     await handleRequest(reply, fetchData);
   });
+
+  fastify.get("/random", async (req, reply) => {
+    const lang = req.query.lang;
+
+    const fetchData = async () => {
+      const [myth] = await collection
+        .aggregate([{ $sample: { size: 1 } }])
+        .toArray();
+
+      if (!myth) return null;
+
+      return {
+        id: myth.id,
+        image: myth.image,
+        title: myth.translations?.[lang].title,
+        description: myth.translations?.[lang].description,
+      };
+    };
+
+    await handleRequest(reply, fetchData);
+  });
 }
