@@ -37,7 +37,7 @@ export default async function myths(fastify) {
       }));
     };
 
-    await handleRequest(reply, fetchData);
+    await handleRequest(reply, fetchData, {});
   });
 
   fastify.get("/:id", { schema: mythByIdSchema }, async (req, reply) => {
@@ -57,7 +57,7 @@ export default async function myths(fastify) {
       };
     };
 
-    await handleRequest(reply, fetchData);
+    await handleRequest(reply, fetchData, {});
   });
 
   fastify.get("/random", { schema: randomMythSchema }, async (req, reply) => {
