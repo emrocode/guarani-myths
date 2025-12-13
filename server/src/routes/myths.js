@@ -74,6 +74,6 @@ export default async function myths(fastify) {
       };
     };
 
-    await handleRequest(reply, fetchData);
+    await handleRequest(reply, fetchData, { disableCache: true });
   });
 }

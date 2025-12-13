@@ -1,6 +1,10 @@
 import { TTL } from "../_constants/index.js";
 
-export async function handleRequest(reply, fetchData) {
+export async function handleRequest(
+  reply,
+  fetchData,
+  { disableCache = false },
+) {
   try {
     const result = await fetchData();
 
@@ -13,9 +17,11 @@ export async function handleRequest(reply, fetchData) {
       });
     }
 
-    reply.headers({
-      "Cache-Control": `public, s-maxage=${TTL}, stale-while-revalidate=${TTL * 2}`,
-    });
+    if (!disableCache) {
+      reply.headers({
+        "Cache-Control": `public, s-maxage=${TTL}, stale-while-revalidate=${TTL * 2}`,
+      });
+    }
 
     return reply.code(200).send(result);
   } catch (error) {
