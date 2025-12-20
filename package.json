@@ -3,10 +3,10 @@
   "engines": {
     "node": "22.x"
   },
-  "packageManager": "npm@11.6.2",
+  "packageManager": "npm@11.7.0",
   "//": "Dependencies required from api/*",
   "dependencies": {
-    "@fastify/cors": "^11.1.0",
+    "@fastify/cors": "^11.2.0",
     "@fastify/env": "^5.0.3",
     "@fastify/helmet": "^13.0.2",
     "@fastify/mongodb": "^9.0.2",
