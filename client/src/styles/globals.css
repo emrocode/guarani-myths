@@ -16,7 +16,7 @@
   --color-tertiary: oklch(0.235 0 0);
   --color-accent: oklch(0.293 0.0179 93.31);
   --color-accent--secondary: oklch(0.4582 0.0416 65.09);
-  --color-line: --alpha(var(--color-tertiary) / 15%);
+  --color-line: --alpha(var(--color-tertiary) / 25%);
 }
 
 @variant dark {
@@ -61,7 +61,7 @@
   p {
     @apply mb-6;
     &:has(+ h2) {
-      @apply mb-[var(--nav-h)];
+      @apply mb-(--nav-h);
     }
   }
 
@@ -72,7 +72,7 @@
   ul {
     @apply mb-6 ml-5 list-item list-disc;
     &:has(+ h2) {
-      @apply mb-[var(--nav-h)];
+      @apply mb-(--nav-h);
     }
   }
 
@@ -82,5 +82,5 @@
 }
 
 @utility container {
-  @apply mx-auto w-11/12 max-w-[var(--max-w)];
+  @apply mx-auto w-11/12 max-w-(--max-w);
 }
