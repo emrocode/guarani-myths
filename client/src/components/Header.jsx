@@ -1,5 +1,5 @@
 import { Button } from "./ui";
-import { ArrowRightIcon, ArrowUpRightIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 
 export default function Header() {
   return (
