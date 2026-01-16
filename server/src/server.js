@@ -10,35 +10,35 @@ import { envSchema } from "./schemas/env.js";
 
 const app = Fastify({ logger: true });
 
-await app.register(fastifyEnv, {
-  dotenv: true,
-  schema: envSchema,
-});
-
-app
-  .register(fastifyMongodb, {
-    forceClose: true,
-    url: app.config.MONGODB_URL,
-  })
-  .ready(async () => {
-    try {
-      await app.mongo.client.db().command({ ping: 1 });
-      console.log("MongoDB connected!");
-    } catch (err) {
-      console.error("MongoDB connection failed!", err);
-      process.exit(1);
-    }
+const setup = async () => {
+  await app.register(fastifyEnv, {
+    dotenv: true,
+    schema: envSchema,
   });
 
-app
-  .register(fastifyCors, {
-    origin: "*",
-    methods: ["GET"],
-  })
-  .register(fastifyHelmet, { global: true })
-  .register(routes);
+  await app.register(fastifyMongodb, {
+    forceClose: true,
+    url: app.config.MONGODB_URL,
+  });
+
+  try {
+    await app.mongo.client.db().command({ ping: 1 });
+    app.log.info("MongoDB connected!");
+  } catch (err) {
+    app.log.error(err, "MongoDB connection failed!");
+    process.exit(1);
+  }
+
+  app.register(fastifyCors, { origin: "*", methods: ["GET"] });
+  app.register(fastifyHelmet, { global: true });
+  app.register(routes);
+
+  await app.ready();
+};
+
+const setupPromise = setup();
 
 export default async (req, res) => {
-  await app.ready();
+  await setupPromise;
   app.server.emit("request", req, res);
 };
