@@ -1,6 +1,7 @@
 import Header from "./Header";
 import { Outlet } from "react-router";
 import Footer from "./Footer";
+import { Dialog } from "./ui";
 
 const Layout = () => {
   return (
@@ -10,6 +11,7 @@ const Layout = () => {
         <Outlet />
       </div>
       <Footer />
+      <Dialog />
     </>
   );
 };

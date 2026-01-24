@@ -1,6 +1,17 @@
-# Mitos Guaraníes
+<div align="center">
 
-Explora la mitología **Guaraní** a través de esta API. Accederás a los siete monstruos legendarios, su historia resumida e imágenes relacionadas.
+![](./client/public/favicon_48x48.png)
+\
+_La fuente definitiva sobre\
+los mitos y el folclore guaraní_
+
+[es](README.md) / [en](README.en.md)
+
+</div>
+
+## Introducción
+
+Explora la mitología **guaraní** a través de esta API. Accede a los siete monstruos legendarios, su historia resumida e imágenes relacionadas.
 
 ## Para empezar
 
@@ -21,9 +32,9 @@ fetch("https://warani.vercel.app/api/myths/1?lang=es")
 ```json
 {
   "id": 1,
+  "image": "https://warani.vercel.app/images/...",
   "name": "Taú y Keraná",
-  "description": "Taú era un espíritu maléfico que...",
-  "image": "https://warani.vercel.app/images/..."
+  "description": "Taú era un espíritu maléfico que..."
 }
 ```
 
@@ -31,6 +42,6 @@ fetch("https://warani.vercel.app/api/myths/1?lang=es")
 
 Si tienes alguna sugerencia que podría mejorar el proyecto, por favor haz un [fork] del repositorio y crea una [pull_request] o puedes simplemente abrir una [issue] con la etiqueta «_enhancement_».
 
-[fork]: https://github.com/emrocode/guarani-myths-api/fork
-[pull_request]: https://github.com/emrocode/guarani-myths-api/pulls
-[issue]: https://github.com/emrocode/guarani-myths-api/issues
+[fork]: https://github.com/emrocode/guarani-myths/fork
+[pull_request]: https://github.com/emrocode/guarani-myths/pulls
+[issue]: https://github.com/emrocode/guarani-myths/issues

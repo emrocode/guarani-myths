@@ -14,7 +14,7 @@ export default function Button({
       <a
         className={clsx(
           className,
-          "ring-line ring-offset-primary bg-accent rounded-xs px-4 py-2 text-sm font-medium whitespace-nowrap text-white no-underline ring ring-offset-[1.5px] transition-opacity duration-150 ease-in hover:opacity-80 disabled:opacity-60",
+          "bg-accent rounded-md px-5 py-2.5 text-sm font-medium whitespace-nowrap text-white no-underline transition-opacity duration-150 ease-in hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60",
           {
             "bg-accent--secondary dark:text-primary": variant === "secondary",
           },
@@ -31,7 +31,7 @@ export default function Button({
     <HeadButton
       className={clsx(
         className,
-        "ring-line ring-offset-primary bg-accent rounded-xs px-4 py-2 text-sm font-medium whitespace-nowrap text-white no-underline ring ring-offset-[1.5px] transition-opacity duration-150 ease-in hover:opacity-80 disabled:opacity-60",
+        "bg-accent rounded-md px-5 py-2.5 text-sm font-medium whitespace-nowrap text-white no-underline transition-opacity duration-150 ease-in hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60",
         {
           "bg-accent--secondary": variant === "secondary",
         },

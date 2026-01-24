@@ -51,7 +51,7 @@
   }
 
   h1 {
-    @apply after:text-accent--secondary text-5xl;
+    @apply after:text-accent--secondary text-4xl md:text-5xl;
   }
 
   h2 {
