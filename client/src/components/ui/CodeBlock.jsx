@@ -14,7 +14,7 @@ export default function CodeBlock({ code, language, ...props }) {
           <pre
             className={clsx(
               className,
-              "rounded p-4 break-all whitespace-pre-wrap",
+              "rounded-md p-4 text-sm/6 break-all whitespace-pre-wrap",
             )}
             style={{ ...style, backgroundColor: "var(--color-secondary)" }}
           >

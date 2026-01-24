@@ -18,6 +18,9 @@ export default function Header() {
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-start">
+          <Button href="/api/auth/github" variant="secondary">
+            Generar API Key
+          </Button>
           <Button
             className="rounded-full!"
             href="https://github.com/emrocode/guarani-myths"
