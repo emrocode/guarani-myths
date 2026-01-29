@@ -43,7 +43,7 @@ export default function Dialog() {
   return (
     <dialog
       ref={dialogRef}
-      className="bg-secondary backdrop:bg-line fixed inset-0 m-auto max-w-sm rounded-md border-none p-8 text-center text-pretty"
+      className="bg-secondary backdrop:bg-line fixed inset-0 m-auto w-11/12 max-w-sm rounded-md border-none p-8 text-center text-pretty"
     >
       <div className="flex flex-col">
         <h2>{title}</h2>

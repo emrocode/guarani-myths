@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://warani.vercel.app/sitemap.xml
+Sitemap: https://guarani.emrocode.xyz/sitemap.xml
