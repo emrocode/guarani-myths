@@ -9,38 +9,27 @@ export default function Button({
   children,
   ...props
 }) {
+  const Component = href ? "a" : HeadButton;
+
+  const classes = clsx(
+    className,
+    "bg-accent rounded-md px-5 py-3 text-sm font-medium whitespace-nowrap text-white uppercase no-underline shadow transition-opacity duration-150 ease-in hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60",
+    {
+      "bg-accent--secondary dark:text-primary": href && variant === "secondary",
+      "bg-accent--secondary": !href && variant === "secondary",
+    },
+  );
+
+  const componentProps = {
+    className: classes,
+    ...props,
+  };
+
   if (href) {
-    return (
-      <a
-        className={clsx(
-          className,
-          "bg-accent rounded-md px-5 py-2.5 text-sm font-medium whitespace-nowrap text-white no-underline transition-opacity duration-150 ease-in hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60",
-          {
-            "bg-accent--secondary dark:text-primary": variant === "secondary",
-          },
-        )}
-        href={href}
-        {...props}
-      >
-        {children}
-      </a>
-    );
+    componentProps.href = href;
   }
 
-  return (
-    <HeadButton
-      className={clsx(
-        className,
-        "bg-accent rounded-md px-5 py-2.5 text-sm font-medium whitespace-nowrap text-white no-underline transition-opacity duration-150 ease-in hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60",
-        {
-          "bg-accent--secondary": variant === "secondary",
-        },
-      )}
-      {...props}
-    >
-      {children}
-    </HeadButton>
-  );
+  return <Component {...componentProps}>{children}</Component>;
 }
 
 Button.propTypes = {
