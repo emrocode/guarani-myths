@@ -39,7 +39,7 @@ export default function Demo({ origin }) {
     fetchData();
   }, [run]);
 
-  const codeString = `fetch("${origin}/api/myths/1?lang=es")\n  .then((res) => res.json())\n  .then((data) => console.log(data));`;
+  const codeString = `fetch("${origin}/api/myths/1?lang=es", {\n  method: "GET",\n  headers: {\n    Authorization: "Bearer ${key || "YOUR_TOKEN"}"\n  }\n})\n.then((res) => res.json())\n.then((data) => console.log(data));`;
   const codeResults = JSON.stringify(data?.result, null, 2);
 
   return (

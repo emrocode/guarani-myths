@@ -31,17 +31,17 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="top-8 hidden self-start rounded-md md:sticky md:block">
-      <ul className="divide-line mb-0 ml-0 list-none space-y-2 divide-y">
+    <aside className="top-8 hidden self-start rounded-md shadow md:sticky md:block">
+      <ul className="divide-line bg-secondary mb-0 ml-0 list-none space-y-2 divide-y rounded-md px-8 py-4">
         {SECTIONS.map((item) => {
           const id = slugify(item);
           return (
             <li key={id}>
               <NavLink
                 className={clsx(
-                  "text-tertiary/60 block py-2 no-underline hover:bg-inherit",
+                  "text-tertiary/80 block py-3 no-underline hover:bg-inherit",
                   {
-                    "font-medium !text-inherit": activeId === id,
+                    "font-medium text-inherit!": activeId === id,
                   },
                 )}
                 target="_parent"

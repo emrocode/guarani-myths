@@ -8,8 +8,9 @@ export default function Footer() {
 
   return (
     <footer className="border-line border-y">
-      <div className="container flex min-h-[var(--nav-h)] flex-col items-center py-8 text-center text-sm">
+      <div className="container flex min-h-(--nav-h) flex-col items-center py-8 text-center text-sm">
         <a
+          aria-label="Powered by Vercel"
           className="mb-4 hover:bg-inherit"
           href="https://vercel.com?utm_source=warani&utm_campaign=oss"
           rel="noopener noreferrer"
