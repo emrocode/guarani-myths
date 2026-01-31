@@ -20,7 +20,7 @@
 }
 
 @variant dark {
-  --color-primary: oklch(0.1547 0.0045 84.57);
+  --color-primary: oklch(0.173 0.0063 91.68);
   --color-secondary: oklch(0.2039 0.0097 97.83);
   --color-tertiary: oklch(0.8924 0.0241 88.24);
   --color-accent--secondary: oklch(0.6654 0.051 65.73);
