@@ -9,9 +9,7 @@ export default function Header() {
           <div className="mx-auto flex w-max justify-center">
             <h1 className="flex flex-col items-center capitalize md:items-start">
               mitos
-              <span className="text-accent--secondary italic md:ml-12">
-                guaraníes
-              </span>
+              <span className="text-accent--secondary md:ml-12">guaraníes</span>
             </h1>
           </div>
           <p className="text-tertiary/80 mx-auto mt-2 max-w-xl md:text-lg">
