@@ -8,15 +8,17 @@ export const rateLimitMiddleware = async (req, reply) => {
   try {
     if (req.method !== "GET") return;
 
-    if (!req.apiKey) {
+    const keyId = req.apiKey?.keyId;
+
+    if (!keyId) {
       return reply.code(401).send({ error: "Unauthorized: Invalid API Key" });
     }
 
     const { data: ratelimit, error } = await unkeyClient.ratelimit.limit({
       namespace: "myths.requests",
       cost: 1,
-      duration: 86400,
-      identifier: req.apiKey.keyId,
+      duration: 86400000,
+      identifier: keyId,
       limit: 10,
     });
 
