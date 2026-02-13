@@ -25,7 +25,11 @@ export const rateLimitMiddleware = async (req, reply) => {
     if (error || !ratelimit.success) {
       const resetTime = ratelimit.reset ?? Date.now();
       const waitMs = resetTime - Date.now();
-      const hours = Math.ceil(waitMs / (1000 * 60 * 60));
+      const minTotal = Math.ceil(waitMs / (1000 * 60));
+      const h = Math.floor(minTotal / 60);
+      const m = minTotal % 60;
+
+      const message = h > 0 ? `${h}h ${m}m` : `${m}m`;
 
       return reply
         .code(429)
@@ -34,8 +38,8 @@ export const rateLimitMiddleware = async (req, reply) => {
           "no-store, no-cache, must-revalidate, proxy-revalidate",
         )
         .send({
-          error: "LIMIT_REACHED",
-          message: `Try again in ${hours} hours.`,
+          error: "RATE_LIMIT_EXCEEDED",
+          message: `Try again in ${message}`,
         });
     }
 
