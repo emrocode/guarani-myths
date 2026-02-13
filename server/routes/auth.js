@@ -32,7 +32,7 @@ export default async function auth(fastify) {
       const { data: gh } = await axios.get("https://api.github.com/user", {
         headers: {
           Authorization: `Bearer ${token.access_token}`,
-          "User-Agent": "Guarani-Myths (https://guarani.emrocode.xyz)",
+          "User-Agent": "Guarani-Myths (https://guarani.emroco.de)",
         },
       });
 
