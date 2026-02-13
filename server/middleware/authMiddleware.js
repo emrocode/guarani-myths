@@ -8,9 +8,7 @@ export const authMiddleware = async (req, reply) => {
   const authorizationHeader = req.headers.authorization;
 
   if (!authorizationHeader) {
-    return reply
-      .status(401)
-      .send({ error: "Unauthorized: No API Key provided" });
+    return reply.code(401).send({ error: "Unauthorized: No API Key provided" });
   }
 
   const apiKey = authorizationHeader.replace("Bearer ", "");
@@ -19,12 +17,12 @@ export const authMiddleware = async (req, reply) => {
     const result = await unkeyClient.keys.verifyKey({ key: apiKey });
 
     if (!result.data.valid) {
-      return reply.status(401).send({ error: "Unauthorized: Invalid API Key" });
+      return reply.code(401).send({ error: "Unauthorized: Invalid API Key" });
     }
 
-    req.apiKey = apiKey;
+    req.apiKey = result.data;
   } catch (error) {
     req.log.error(error);
-    return reply.status(500).send({ error: "Internal Server Error" });
+    return reply.code(500).send({ error: "Internal Server Error" });
   }
 };
