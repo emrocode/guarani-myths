@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://guarani.emrocode.xyz/sitemap.xml
+Sitemap: https://guarani.emroco.de/sitemap.xml
