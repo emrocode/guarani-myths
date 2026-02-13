@@ -16,7 +16,7 @@
     "lint:client": "cd client && eslint ./src/ --report-unused-disable-directives --max-warnings 0",
     "lint:fix:client": "cd client && eslint ./src/ --fix",
     "format:client": "cd client && prettier ./src/ --write",
-    "format:server": "cd server && prettier ./src/ --write",
+    "format:server": "cd server && prettier . --write",
     "format": "npm run format:client && npm run format:server"
   },
   "dependencies": {
