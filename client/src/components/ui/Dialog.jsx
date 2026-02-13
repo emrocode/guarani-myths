@@ -12,11 +12,27 @@ export default function Dialog() {
   const content = {
     success: {
       title: "Clave generada",
-      description: "Guarda tu clave ahora, no se volverá a mostrar.",
+      description: (
+        <>
+          <p>
+            Guarda tu clave <strong>ahora</strong>, no se volverá a mostrar.
+          </p>
+          {key && (
+            <div className="bg-primary border-line relative mb-3 rounded border p-2">
+              <code className="font-mono text-sm break-all">{key}</code>
+            </div>
+          )}
+        </>
+      ),
     },
     existing_key: {
       title: "Clave activa",
-      description: "Ya tienes una clave vinculada a esta cuenta.",
+      description: (
+        <p>
+          Ya tienes una clave vinculada. Escribe a{" "}
+          <a href="mailto:hi@emroco.de">hi@emroco.de</a> para soporte.
+        </p>
+      ),
     },
   };
 
@@ -47,12 +63,7 @@ export default function Dialog() {
     >
       <div className="flex flex-col">
         <h2>{title}</h2>
-        <p>{description}</p>
-        {key && (
-          <div className="bg-primary border-line group relative mb-2 rounded-md border p-2">
-            <code className="font-mono text-sm break-all">{key}</code>
-          </div>
-        )}
+        {description}
         <Button onClick={closeDialog}>Entendido</Button>
       </div>
     </dialog>

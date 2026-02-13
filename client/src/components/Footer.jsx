@@ -3,7 +3,7 @@ import { Button } from "@headlessui/react";
 import { VercelBadge } from "./svgl";
 
 export default function Footer() {
-  const toggleDarkMode = useThemeStore((s) => s.toggleDarkMode);
+  const toggleTheme = useThemeStore((s) => s.toggleTheme);
   const date = new Date(2022, 0);
 
   return (
@@ -21,16 +21,12 @@ export default function Footer() {
         <span>Este proyecto utiliza la Licencia MIT.</span>
         <span>
           Creado y mantenido por&nbsp;
-          <a
-            href="https://github.com/emrocode"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <a href="https://emroco.de" rel="noopener noreferrer" target="_blank">
             <span>Emilio Romero</span>
           </a>
           &nbsp;{date.getFullYear()}&ndash;present
         </span>
-        <Button className="mt-2" id="dTheme" onClick={toggleDarkMode}>
+        <Button className="mt-2" onClick={toggleTheme}>
           <code>
             <span className="before:content-['Light'] dark:before:content-['Dark']">
               &nbsp;theme

@@ -1,62 +1,48 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import { Button } from "./ui";
 import { CodeBlock } from "@/components/ui";
-import { LoaderIcon } from "lucide-react";
+import { useDataStore } from "@/store";
+import { LoaderIcon, PlayIcon } from "lucide-react";
 import PropTypes from "prop-types";
 
 export default function Demo({ origin }) {
-  const [data, setData] = useState({
-    result: {},
-    isLoading: false,
-  });
-
-  const [run, setRun] = useState(false);
-  const [key, setKey] = useState("");
+  const data = useDataStore((s) => s.data);
+  const run = useDataStore((s) => s.run);
+  const setRun = useDataStore((s) => s.setRun);
+  const key = useDataStore((s) => s.key);
+  const setKey = useDataStore((s) => s.setKey);
+  const fetchData = useDataStore((s) => s.fetchData);
 
   useEffect(() => {
-    if (!run) return;
+    if (run) {
+      fetchData();
+    }
+  }, [run, fetchData]);
 
-    const fetchData = async () => {
-      setData((prev) => ({ ...prev, isLoading: true }));
-
-      try {
-        const [response] = await Promise.all([
-          axios.get("/api/myths/1", {
-            params: { lang: "es" },
-            headers: { Authorization: `Bearer ${key}` },
-            validateStatus: () => true,
-          }),
-          new Promise((t) => setTimeout(t, 777)),
-        ]);
-
-        setData({ result: response?.data, isLoading: false });
-      } catch {
-        setData((prev) => ({ ...prev, isLoading: false }));
-      }
-    };
-
-    fetchData();
-  }, [run]);
-
-  const codeString = `fetch("${origin}/api/myths/1?lang=es", {\n  method: "GET",\n  headers: {\n    Authorization: "Bearer ${key || "YOUR_TOKEN"}"\n  }\n})\n.then((res) => res.json())\n.then((data) => console.log(data));`;
+  const codeString = `fetch("${origin}/api/myths/1?lang=es", {\n  headers: {\n    Authorization: "Bearer ${key || "YOUR_API_KEY"}"\n  }\n})\n.then((res) => res.json())\n.then((data) => console.log(data));`;
   const codeResults = JSON.stringify(data?.result, null, 2);
 
   return (
     <div className="space-y-8">
-      <input
-        required
-        className="bg-secondary w-full rounded-md p-4 text-sm"
-        placeholder="API KEY"
-        type="text"
-        value={key}
-        onChange={(e) => setKey(e.target.value)}
-      />
-      <CodeBlock code={codeString} language="javascript" />
+      <div className="space-y-4">
+        <input
+          required
+          className="bg-secondary w-full rounded-md p-4 text-sm"
+          placeholder="API KEY"
+          type="text"
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+        />
+        <CodeBlock code={codeString} language="javascript" />
+      </div>
       <Button disabled={run || !key} onClick={() => setRun(true)}>
         <div className="flex items-center gap-x-2">
+          {data.isLoading ? (
+            <LoaderIcon className="size-4 animate-spin" />
+          ) : (
+            <PlayIcon className="size-4" />
+          )}
           <span>{data.isLoading ? "Running..." : "Run script"}</span>
-          {data.isLoading && <LoaderIcon className="size-4 animate-spin" />}
         </div>
       </Button>
       <CodeBlock code={codeResults} language="json" />
