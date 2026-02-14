@@ -13,7 +13,7 @@ export default function Button({
 
   const classes = clsx(
     className,
-    "bg-accent rounded-md px-5 py-3 text-sm font-medium whitespace-nowrap text-white uppercase no-underline shadow transition-opacity duration-150 ease-in hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60",
+    "bg-accent rounded-md px-4 py-3 md:px-5 text-xs md:text-sm font-medium whitespace-nowrap text-white uppercase no-underline shadow transition-opacity duration-150 ease-in hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60",
     {
       "bg-accent--secondary dark:text-primary": href && variant === "secondary",
       "bg-accent--secondary": !href && variant === "secondary",
