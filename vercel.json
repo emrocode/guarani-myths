@@ -9,7 +9,6 @@
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "api/index.js" },
-    { "source": "/favicon.ico", "destination": "/favicon_48x48.png" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
