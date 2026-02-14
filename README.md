@@ -1,7 +1,7 @@
 <div align="center">
 
-![](./client/public/favicon_48x48.png)
-\
+![](https://github.com/user-attachments/assets/00c21520-af94-4838-bb3a-d052a7c359c3)
+
 _La fuente definitiva sobre\
 los mitos y el folclore guaraní_
 
@@ -17,12 +17,12 @@ Explora la mitología **guaraní** a través de esta API. Accede a los siete mon
 
 La url base contiene información sobre todos los recursos disponibles de la API. Todas las peticiones son `GET` y van sobre `https`. Todas las respuestas devolverán datos en formato `JSON`.
 
-- Base url: https://warani.vercel.app/api
+- Base url: https://guarani.emroco.de/api
 
 ### Ejemplo
 
 ```js
-fetch("https://warani.vercel.app/api/myths/1?lang=es")
+fetch("https://guarani.emroco.de/api/myths/1?lang=es")
   .then((res) => res.json())
   .then((data) => console.log(data));
 ```
@@ -32,7 +32,7 @@ fetch("https://warani.vercel.app/api/myths/1?lang=es")
 ```json
 {
   "id": 1,
-  "image": "https://warani.vercel.app/images/...",
+  "image": "https://guarani.emroco.de/images/...",
   "name": "Taú y Keraná",
   "description": "Taú era un espíritu maléfico que..."
 }
