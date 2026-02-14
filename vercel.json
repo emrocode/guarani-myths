@@ -9,7 +9,7 @@
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "api/index.js" },
-    { "source": "/favicon.ico", "destination": "/favicon_48x48.png" },
+    { "source": "/favicon.ico", "destination": "/favicon-16x16.png" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
