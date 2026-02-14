@@ -5,8 +5,6 @@
 _La fuente definitiva sobre\
 los mitos y el folclore guaraní_
 
-[es](README.md) / [en](README.en.md)
-
 </div>
 
 ## Introducción
