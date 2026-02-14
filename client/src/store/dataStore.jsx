@@ -27,7 +27,7 @@ const useDataStore = create((set, get) => ({
         new Promise((t) => setTimeout(t, 777)),
       ]);
       set({ data: { result: response?.data, isLoading: false } });
-    } catch (error) {
+    } catch {
       set((state) => ({ data: { ...state.data, isLoading: false } }));
     }
   },
