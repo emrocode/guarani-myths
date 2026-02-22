@@ -2,6 +2,7 @@ import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginMdx } from "@rsbuild/plugin-mdx";
 import rehypeSlug from "rehype-slug";
+import rehypeExternalLinks from "rehype-external-links";
 
 export default defineConfig({
   environments: {
@@ -18,7 +19,13 @@ export default defineConfig({
         pluginReact(),
         pluginMdx({
           mdxLoaderOptions: {
-            rehypePlugins: [rehypeSlug],
+            rehypePlugins: [
+              rehypeSlug,
+              [
+                rehypeExternalLinks,
+                { target: "_blank", rel: "noopener noreferrer" },
+              ],
+            ],
           },
         }),
       ],
