@@ -4,6 +4,7 @@ import { VercelBadge } from "./svgl";
 
 export default function Footer() {
   const toggleTheme = useThemeStore((s) => s.toggleTheme);
+  const theme = useThemeStore((s) => s.theme);
   const date = new Date(2022, 0);
 
   return (
@@ -24,14 +25,10 @@ export default function Footer() {
           <a href="https://emroco.de" rel="noopener noreferrer" target="_blank">
             <span>Emilio Romero</span>
           </a>
-          &nbsp;{date.getFullYear()}&ndash;present
+          &nbsp;{date.getFullYear()}&ndash;present.
         </span>
         <Button className="mt-2" onClick={toggleTheme}>
-          <code>
-            <span className="before:content-['Light'] dark:before:content-['Dark']">
-              &nbsp;theme
-            </span>
-          </code>
+          <code>{theme} theme</code>
         </Button>
       </div>
     </footer>
