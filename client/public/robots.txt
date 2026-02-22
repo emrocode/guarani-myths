@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /api/
+Disallow: /api
 
 Sitemap: https://guarani.emroco.de/sitemap.xml
