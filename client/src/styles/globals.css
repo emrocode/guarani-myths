@@ -6,8 +6,8 @@
   --font-fallback:
     BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Arial", "Helvetica Neue", sans-serif;
-  --font-sans: "IBM Plex Sans", var(--font-fallback);
-  --font-mono: "IBM Plex Mono", monospace;
+  --font-sans: "Archivo", var(--font-fallback);
+  --font-mono: monospace;
   --max-w: 56rem;
   --nav-h: 4rem;
 
@@ -33,7 +33,7 @@
   }
 
   main#app {
-    @apply grid min-h-screen grid-cols-1 grid-rows-[auto_1fr_auto] gap-16;
+    @apply grid min-h-screen grid-cols-1 grid-rows-[auto_1fr_auto] gap-(--nav-h);
   }
 
   button:not(:disabled),
