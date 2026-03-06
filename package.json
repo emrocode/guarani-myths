@@ -14,7 +14,7 @@
     "build:client": "cd client && rsbuild build --environment web",
     "preview:client": "cd client && rsbuild preview",
     "lint:client": "cd client && biome check",
-    "lint:fix:client": "cd client && biome --write",
+    "lint:fix:client": "cd client && biome check --write --unsafe",
     "format:client": "cd client && biome format ./src/ --write",
     "format:server": "cd server && biome format . --write",
     "format": "npm run format:client && npm run format:server"
