@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "@/components";
-import { Home, Error } from "@/pages";
+import { Home, NotFound } from "@/pages";
 
 const routes = [
   {
@@ -8,7 +8,7 @@ const routes = [
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: "*", element: <Error /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ];

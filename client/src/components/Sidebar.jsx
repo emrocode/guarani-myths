@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 
 const slugify = (text) => {
@@ -25,7 +25,9 @@ export default function Sidebar() {
       { rootMargin: "-64px 0px -30% 0px", threshold: 0 },
     );
 
-    headings.forEach((h) => observer.observe(h));
+    headings.forEach((h) => {
+      observer.observe(h);
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -39,7 +41,7 @@ export default function Sidebar() {
             <li key={id}>
               <NavLink
                 className={clsx(
-                  "text-tertiary/80 block py-3 no-underline hover:bg-inherit",
+                  "text-muted block py-3 no-underline hover:bg-inherit",
                   {
                     "font-medium text-inherit!": activeId === id,
                   },

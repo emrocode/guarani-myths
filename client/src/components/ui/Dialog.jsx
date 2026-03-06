@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router";
 import Button from "./Button";
 
@@ -18,7 +18,7 @@ export default function Dialog() {
             Guarda tu clave <strong>ahora</strong>, no se volverá a mostrar.
           </p>
           {key && (
-            <div className="bg-primary border-line relative mb-3 rounded border p-2">
+            <div className="bg-primary ring ring-inset ring-line relative mb-3 rounded-md p-2">
               <code className="font-mono text-sm break-all">{key}</code>
             </div>
           )}

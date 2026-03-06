@@ -6,6 +6,7 @@ const VercelBadge = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
+    <title>Vercel</title>
     <rect className="fill-secondary" height="44" rx="4" width="212" />
     <path
       className="fill-tertiary"

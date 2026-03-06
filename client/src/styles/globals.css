@@ -9,14 +9,32 @@
   --font-sans: "Archivo", var(--font-fallback);
   --font-mono: monospace;
   --max-w: 56rem;
-  --nav-h: 4rem;
+  --space: 4rem;
 
   --color-primary: oklch(0.9967 0.0013 106.42);
   --color-secondary: oklch(0.9703 0.007 88.64);
   --color-tertiary: oklch(0.235 0 0);
   --color-accent: oklch(0.293 0.0179 93.31);
   --color-accent--secondary: oklch(0.4582 0.0416 65.09);
+  --color-muted: --alpha(var(--color-tertiary) / 80%);
   --color-line: --alpha(var(--color-tertiary) / 25%);
+
+  --animate-wave: wave 500ms ease-in-out;
+
+  @keyframes wave {
+    0%,
+    100% {
+      transform: rotate(0);
+    }
+    20%,
+    60% {
+      transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+      transform: rotate(10deg);
+    }
+  }
 }
 
 @variant dark {
@@ -33,7 +51,7 @@
   }
 
   main#app {
-    @apply grid min-h-screen grid-cols-1 grid-rows-[auto_1fr_auto] gap-(--nav-h);
+    @apply grid min-h-screen grid-cols-1 grid-rows-[auto_1fr_auto] gap-(--space);
   }
 
   button:not(:disabled),
@@ -55,24 +73,24 @@
   }
 
   h2 {
-    @apply [scroll-margin-top:var(--nav-h)] text-2xl;
+    @apply [scroll-margin-top:var(--space)] text-2xl;
   }
 
   p {
     @apply mb-6;
     &:has(+ h2) {
-      @apply mb-(--nav-h);
+      @apply mb-(--space);
     }
   }
 
-  a {
+  a:not(.group) {
     @apply text-accent--secondary hover:bg-accent--secondary/10 underline;
   }
 
   ul {
     @apply mb-6 ml-5 list-item list-disc;
     &:has(+ h2) {
-      @apply mb-(--nav-h);
+      @apply mb-(--space);
     }
   }
 

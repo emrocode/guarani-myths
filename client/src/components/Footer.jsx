@@ -1,5 +1,5 @@
-import { useThemeStore } from "@/store";
 import { Button } from "@headlessui/react";
+import { useThemeStore } from "@/store";
 import { VercelBadge } from "./svgl";
 
 export default function Footer() {
@@ -28,7 +28,7 @@ export default function Footer() {
           &nbsp;{date.getFullYear()}&ndash;present.
         </span>
         <Button className="mt-2" onClick={toggleTheme}>
-          <code>{theme} theme</code>
+          <code>{`${theme[0]?.toUpperCase()}${theme.slice(1)}`} theme</code>
         </Button>
       </div>
     </footer>

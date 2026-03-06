@@ -1,7 +1,7 @@
-import { useThemeStore } from "@/store";
-import { Highlight, themes } from "prism-react-renderer";
 import clsx from "clsx";
+import { Highlight, themes } from "prism-react-renderer";
 import PropTypes from "prop-types";
+import { useThemeStore } from "@/store";
 
 export default function CodeBlock({ code, language, ...props }) {
   const theme = useThemeStore((s) => s.theme);
@@ -18,10 +18,10 @@ export default function CodeBlock({ code, language, ...props }) {
             )}
             style={{ ...style, backgroundColor: "var(--color-secondary)" }}
           >
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
+            {tokens.map((line) => (
+              <div key={line} {...getLineProps({ line })}>
+                {line.map((token) => (
+                  <span key={token} {...getTokenProps({ token })} />
                 ))}
               </div>
             ))}

@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { Button } from "./ui";
-import { CodeBlock } from "@/components/ui";
-import { useDataStore } from "@/store";
 import { LoaderIcon, PlayIcon } from "lucide-react";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
+import { CodeBlock } from "@/components/ui";
+import { useDataStore } from "@/store";
+import { Button } from "./ui";
 
 export default function Demo({ origin }) {
   const data = useDataStore((s) => s.data);

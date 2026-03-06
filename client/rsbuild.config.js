@@ -1,8 +1,8 @@
 import { defineConfig } from "@rsbuild/core";
-import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginMdx } from "@rsbuild/plugin-mdx";
-import rehypeSlug from "rehype-slug";
+import { pluginReact } from "@rsbuild/plugin-react";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeSlug from "rehype-slug";
 
 export default defineConfig({
   environments: {
