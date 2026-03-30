@@ -9,7 +9,7 @@ export default function Header() {
         <div className="text-center">
           <div className="mx-auto flex w-max justify-center">
             <h1 className="max-w-64 w-full text-center pb-6 capitalize">
-              <span className="font-thin">mitos</span> guaraníes
+              mitos guaraníes
             </h1>
           </div>
           <p className="text-muted mx-auto mt-2 max-w-xl md:text-lg">
