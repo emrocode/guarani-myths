@@ -1,4 +1,3 @@
-import axios from "axios";
 import { create } from "zustand";
 
 const useDataStore = create((set, get) => ({
@@ -19,14 +18,14 @@ const useDataStore = create((set, get) => ({
 
     try {
       const [response] = await Promise.all([
-        axios.get("/api/myths/1", {
-          params: { lang: "es" },
+        fetch("/api/myths/1?lang=es", {
           headers: { Authorization: `Bearer ${key}` },
-          validateStatus: () => true,
         }),
         new Promise((t) => setTimeout(t, 777)),
       ]);
-      set({ data: { result: response?.data, isLoading: false } });
+
+      const result = await response.json();
+      set({ data: { result, isLoading: false } });
     } catch {
       set((state) => ({ data: { ...state.data, isLoading: false } }));
     }

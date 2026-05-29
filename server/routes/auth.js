@@ -1,6 +1,5 @@
 import oauthPlugin from "@fastify/oauth2";
 import unkeyClient from "../lib/unkey.js";
-import axios from "axios";
 
 /**
  * Auth endpoint.\
@@ -8,8 +7,6 @@ import axios from "axios";
  */
 export default async function auth(fastify) {
   const users = fastify.mongo.db.collection("users");
-
-  await users.createIndex({ githubId: 1 }, { name: "_gh_", unique: true });
 
   await fastify.register(oauthPlugin, {
     name: "githubOAuth2",
@@ -29,12 +26,18 @@ export default async function auth(fastify) {
       const { token } =
         await fastify.githubOAuth2.getAccessTokenFromAuthorizationCodeFlow(req);
 
-      const { data: gh } = await axios.get("https://api.github.com/user", {
+      const response = await fetch("https://api.github.com/user", {
         headers: {
           Authorization: `Bearer ${token.access_token}`,
           "User-Agent": "Guarani-Myths (https://guarani.emroco.de)",
         },
       });
+
+      if (!response.ok) {
+        throw new Error(`GitHub API responded with status: ${response.status}`);
+      }
+
+      const gh = await response.json();
 
       const result = await users.findOneAndUpdate(
         { githubId: gh.id },
