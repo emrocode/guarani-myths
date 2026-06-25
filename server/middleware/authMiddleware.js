@@ -7,9 +7,7 @@ import unkeyClient from "../lib/unkey.js";
 export const authMiddleware = async (req, reply) => {
   const authorizationHeader = req.headers.authorization;
 
-  if (!authorizationHeader) {
-    return reply.code(401).send({ error: "Unauthorized: No API Key provided" });
-  }
+  if (!authorizationHeader) return;
 
   const apiKey = authorizationHeader.replace("Bearer ", "");
 
@@ -17,7 +15,7 @@ export const authMiddleware = async (req, reply) => {
     const result = await unkeyClient.keys.verifyKey({ key: apiKey });
 
     if (!result.data.valid) {
-      return reply.code(401).send({ error: "Unauthorized: Invalid API Key" });
+      return reply.code(401).send({ error: "Unauthorized" });
     }
 
     req.apiKey = result.data;
