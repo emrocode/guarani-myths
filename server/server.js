@@ -8,7 +8,7 @@ import fastifyMongodb from "@fastify/mongodb";
 import routes from "./routes/index.js";
 import { envSchema } from "./schemas/env.js";
 
-const app = Fastify({ logger: true });
+const app = Fastify({ trustProxy: true, logger: true });
 
 const setup = async () => {
   await app.register(fastifyEnv, {
