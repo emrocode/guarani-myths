@@ -47,7 +47,7 @@
 @layer base {
   html,
   body {
-    @apply bg-primary text-tertiary min-h-screen scroll-smooth antialiased [scrollbar-width:thin] [scrollbar-color:var(--color-accent--secondary)_var(--color-secondary)];
+    @apply relative bg-primary text-tertiary min-h-screen scroll-smooth antialiased [scrollbar-color:var(--color-accent--secondary)_var(--color-secondary)];
   }
 
   main#app {
