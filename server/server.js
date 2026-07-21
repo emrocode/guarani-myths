@@ -6,29 +6,29 @@ import fastifyEnv from "@fastify/env";
 import fastifyHelmet from "@fastify/helmet";
 import fastifyMongodb from "@fastify/mongodb";
 import routes from "./routes/index.js";
-import { envSchema } from "./schemas/env.js";
+import { envSchema as schema } from "./schemas/env.js";
 
-const app = Fastify({ trustProxy: true, logger: true });
+const app = Fastify({ logger: true });
 
 const setup = async () => {
   await app.register(fastifyEnv, {
     dotenv: true,
-    schema: envSchema,
+    schema,
   });
 
-  await app.register(fastifyMongodb, {
-    forceClose: true,
-    url: app.config.MONGODB_URL,
-  });
+  app
+    .register(fastifyMongodb, {
+      forceClose: true,
+      url: app.config.MONGODB_URL,
+    })
+    .ready((err) => {
+      if (err) {
+        app.log.error(err);
+        return;
+      }
 
-  try {
-    await app.mongo.client.db().command({ ping: 1 });
-    app.log.info("MongoDB connected!");
-  } catch (err) {
-    app.log.error(err, "MongoDB connection failed!");
-    process.exit(1);
-  }
-
+      app.log.info("MongoDB connected...");
+    });
   app.register(fastifyCors, { origin: "*", methods: ["GET"] });
   app.register(fastifyHelmet, { global: true });
   app.register(routes);
