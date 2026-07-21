@@ -1,22 +1,22 @@
 {
   "name": "guarani-myths",
-  "version": "1.0.0",
+  "version": "1",
   "private": true,
   "type": "module",
   "engines": {
-    "node": "22.x"
+    "node": ">=22.x"
   },
-  "packageManager": "npm@11.18.0",
+  "packageManager": "npm@12.1.0",
   "scripts": {
     "dev": "npm run dev:client",
     "build": "npm run build:client",
-    "dev:client": "cd client && rsbuild dev",
-    "build:client": "cd client && rsbuild build --environment web",
-    "preview:client": "cd client && rsbuild preview",
-    "lint:client": "cd client && biome check",
-    "lint:fix:client": "cd client && biome check --write --unsafe",
-    "format:client": "cd client && biome format ./src/ --write",
-    "format:server": "cd server && biome format . --write",
+    "dev:client": "rsbuild dev --root client",
+    "build:client": "rsbuild build --root client --environment web",
+    "preview:client": "rsbuild preview --root client",
+    "lint:client": "biome check client/",
+    "lint:fix:client": "biome check --write --unsafe client/",
+    "format:client": "biome format --write client/src/",
+    "format:server": "biome format --write server/",
     "format": "npm run format:client && npm run format:server"
   },
   "dependencies": {
