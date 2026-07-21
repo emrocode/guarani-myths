@@ -64,9 +64,19 @@ export default async function myths(fastify) {
     const lang = req.query.lang;
 
     const fetchData = async () => {
-      const [myth] = await collection
-        .aggregate([{ $sample: { size: 1 } }])
+      const rand = Math.random();
+
+      let [myth] = await collection
+        .find({ random: { $gte: rand } })
+        .limit(1)
         .toArray();
+
+      if (!myth) {
+        [myth] = await collection
+          .find({ random: { $lte: rand } })
+          .limit(1)
+          .toArray();
+      }
 
       if (!myth) return null;
 
