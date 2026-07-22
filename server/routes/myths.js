@@ -1,9 +1,9 @@
+import { handleRequest } from "../helpers/requestHandler.js";
 import {
-  mythCollectionSchema,
   mythByIdSchema,
+  mythCollectionSchema,
   randomMythSchema,
 } from "../schemas/myths.js";
-import { handleRequest } from "../helpers/requestHandler.js";
 
 /**
  * Myths endpoint.\

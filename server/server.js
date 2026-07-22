@@ -1,10 +1,8 @@
-"use strict";
-
-import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 import fastifyEnv from "@fastify/env";
 import fastifyHelmet from "@fastify/helmet";
 import fastifyMongodb from "@fastify/mongodb";
+import Fastify from "fastify";
 import routes from "./routes/index.js";
 import { envSchema as schema } from "./schemas/env.js";
 

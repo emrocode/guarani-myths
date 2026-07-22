@@ -1,9 +1,9 @@
-import welcome from "./welcome.js";
-import myths from "./myths.js";
-import meta from "./_meta.js";
-import auth from "./auth.js";
 import { authMiddleware } from "../middleware/authMiddleware.js";
 import { rateLimitMiddleware } from "../middleware/rateLimitMiddleware.js";
+import meta from "./_meta.js";
+import auth from "./auth.js";
+import myths from "./myths.js";
+import welcome from "./welcome.js";
 
 export default async function routes(app) {
   app.register(welcome, { prefix: "/api" });
