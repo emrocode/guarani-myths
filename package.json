@@ -15,6 +15,8 @@
     "preview:client": "rsbuild preview --root client",
     "lint:client": "biome check client/",
     "lint:fix:client": "biome check --write --unsafe client/",
+    "lint:server": "biome check --write server/",
+    "lint:fix:server": "biome check --write --unsafe server/",
     "format:client": "biome format --write client/src/",
     "format:server": "biome format --write server/",
     "format": "npm run format:client && npm run format:server"
