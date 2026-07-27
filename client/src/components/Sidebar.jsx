@@ -25,9 +25,7 @@ export default function Sidebar() {
       { rootMargin: "-64px 0px -30% 0px", threshold: 0 },
     );
 
-    headings.forEach((h) => {
-      observer.observe(h);
-    });
+    headings.forEach((h) => observer.observe(h));
 
     return () => observer.disconnect();
   }, []);

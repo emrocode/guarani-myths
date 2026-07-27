@@ -18,10 +18,10 @@ export default function CodeBlock({ code, language, ...props }) {
             )}
             style={{ ...style, backgroundColor: "var(--color-secondary)" }}
           >
-            {tokens.map((line) => (
-              <div key={line} {...getLineProps({ line })}>
-                {line.map((token) => (
-                  <span key={token} {...getTokenProps({ token })} />
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                {line.map((token, j) => (
+                  <span key={j} {...getTokenProps({ token })} />
                 ))}
               </div>
             ))}

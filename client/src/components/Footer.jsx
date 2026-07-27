@@ -19,7 +19,17 @@ export default function Footer() {
         >
           <VercelBadge />
         </a>
-        <span>Este proyecto utiliza la Licencia MIT.</span>
+        <span>
+          Este proyecto utiliza la{" "}
+          <a
+            href="https://github.com/emrocode/guarani-myths/blob/main/LICENSE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Licencia MIT
+          </a>
+          .
+        </span>
         <span>
           Creado y mantenido por&nbsp;
           <a href="https://emroco.de" rel="noopener noreferrer" target="_blank">
