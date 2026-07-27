@@ -33,5 +33,12 @@ export default defineConfig({
   },
   html: {
     template: "./index.html",
+    tags: [
+      {
+        tag: "script",
+        append: false,
+        children: `(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`
+      },
+    ],
   },
 });
