@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://github.com/user-attachments/assets/00c21520-af94-4838-bb3a-d052a7c359c3)
+![](/client/public/logo-56x56.png)
 
 _La fuente definitiva sobre\
 los mitos y el folclore guaraní_
